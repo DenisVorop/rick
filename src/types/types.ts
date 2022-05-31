@@ -10,7 +10,8 @@ export type TEpisode = {
 
 export type TStore = {
     episodes: TEpisode[]
-    episode: any
+    episode: TEpisode
+    character: any
 }
 
 export type TCharacter = {

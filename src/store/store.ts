@@ -1,5 +1,5 @@
 import { createEvent, createStore, createEffect } from "effector";
-import { TStore } from "../types/types";
+import { TEpisode, TStore } from "../types/types";
 
 // Standard interface and functions
 // export interface Todo {
@@ -57,13 +57,14 @@ export const getEpisode = createEffect(async (id: number) => {
 
 export default createStore<TStore>({
     episodes: [],
-    episode: []
+    episode: {} as TEpisode,
+    character: [],
 })
-    .on(getEpisodes.doneData, (state, episodes) => ({ ...state, episodes }))
-    .on(getEpisode.doneData, (state, episode) => ({ ...state, episode }))
+    .on(getEpisodes.doneData, (state, episodes: TEpisode[]) => ({ ...state, episodes }))
+    .on(getEpisode.doneData, (state, episode: TEpisode) => ({ ...state, episode }))
     .on(removeEpisode, (state) => ({
         ...state,
-        episode: []
+        episode: {} as TEpisode
     }))
     // .on(update, (state, { id, text }) => ({
     //     ...state,

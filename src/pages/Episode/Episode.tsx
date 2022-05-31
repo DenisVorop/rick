@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useStore } from 'effector-react';
 
 import $store, { getEpisode, removeEpisode } from '../../store/store';
@@ -10,6 +10,7 @@ import './episode.scss'
 interface EpisodeProps { }
 
 const Episode: React.FC<EpisodeProps> = () => {
+    const navigate = useNavigate()
     const params = useParams()
     const store = useStore($store);
     const episode: TEpisode = store.episode
@@ -34,6 +35,10 @@ const Episode: React.FC<EpisodeProps> = () => {
         })
     }, [episode])
 
+    const openCharacter = (id: number) => {
+        navigate(`/characters/${id}`)
+    }
+
     return (
         <div className="episode">
             <div className="episode__container">
@@ -45,11 +50,15 @@ const Episode: React.FC<EpisodeProps> = () => {
                     <div className="episode__date">{episode.air_date}</div>
                     <div className="episode__characters">
                         {characters.map(character => (
-                            <div className="episode__character" key={`${episode.name}_${character.id}`}>
+                            <div
+                                className="episode__character"
+                                key={`${episode.name}_${character.id}`}
+                                onClick={() => openCharacter(character.id)}
+                            >
                                 <div><img src={character.image} alt={character.image} /></div>
                                 <div>{character.name}</div>
                                 <div>{character.gender}</div>
-                        </div>
+                            </div>
                         ))}
                     </div>
                 </div>
