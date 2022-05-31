@@ -83,24 +83,29 @@ const Character: React.FC<CharacterProps> = () => {
                             <div className="character__row">
                                 <div className="row-info">
                                     <div className="label">Type</div>
-                                    <div className="text">{character.type ? character.type : 'Unknown'}</div>
+                                    <div className="text">{character.type ? character.type : 'unknown'}</div>
                                 </div>
                             </div>
-                            <div className="character__row character-link">
-                                <div className="row-info">
-                                    <div className="label">Location</div>
-                                    <div className="text">{character.location?.name}</div>
+                            <Link to={`/locations/${character.location?.name}`}>
+                                <div className="character__row character-link">
+                                    <div className="row-info">
+                                        <div className="label">Location</div>
+                                        <div className="text">{character.location?.name}</div>
+                                    </div>
+                                    <div className="row-arrow">
+                                        <img src={arrowR} alt="arrowR" />
+                                    </div>
                                 </div>
-                                <div className="row-arrow">
-                                    <img src={arrowR} alt="arrowR" />
-                                </div>
-                            </div>
+                            </Link>
                         </div>
                         <div className="character__episodes">
                             <div className="info-label">Episodes</div>
                             {episodes.map(episode => (
-                                <Link to={`/episodes/${episode.id}`}>
-                                    <div className="character__row character-link" key={episode.name}>
+                                <Link
+                                    to={`/episodes/${episode.id}`}
+                                    key={episode.name}
+                                >
+                                    <div className="character__row character-link">
                                         <div className="row-info">
                                             <div className="label">{episode.episode}</div>
                                             <div className="text">{episode.name}</div>

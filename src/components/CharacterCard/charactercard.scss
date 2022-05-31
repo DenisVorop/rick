@@ -1,0 +1,55 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 20px;
+}
+
+.character-card {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    // .character-card__image
+
+    &__image {
+        border-radius: 8px 8px 0px 0px;
+
+        img {
+            border-radius: 8px 8px 0px 0px;
+            width: 240px;
+            height: 168px;
+        }
+    }
+
+    // .character-card__info
+
+    &__info {
+        padding: 12px 16px;
+    }
+
+    // .character-card__name
+
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.15px;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    // .character-card__gender
+
+    &__gender {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+}

@@ -1,0 +1,59 @@
+.locations {
+
+    // .locations__container
+
+    &__container {}
+
+    &__body {}
+
+    // .locations__inputs
+
+    &__inputs {
+        margin: 0px 0px 65px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // .locations__input
+
+    &__input {
+        width: fit-content;
+        position: relative;
+
+        &:not(:last-child) {
+            margin: 0px 20px 0px 0px;
+        }
+
+        input {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 16px 16px 16px 48px;
+            width: 262px;
+        }
+
+        input::placeholder {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+        }
+    }
+
+    // .locations__cards
+
+    &__cards {
+        height: calc(100vh - 75px);
+        overflow: scroll;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px 20px;
+    }
+}

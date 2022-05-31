@@ -29,3 +29,37 @@
     color: #8E8E93;
     margin: 0px 0px 24px 0px;
 }
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 24px 0px;
+}
+
+.title {
+    font-size: 36px;
+    line-height: 42px;
+    color: #081F32;
+}
+
+.null {}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px 0px 64px 0px;
+}
+
+.episode {}
+
+.date {}
+
+.cast {}
+
+.image-top {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 16px 0px;
+}

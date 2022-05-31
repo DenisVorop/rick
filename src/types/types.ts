@@ -10,8 +10,11 @@ export type TEpisode = {
 
 export type TStore = {
     episodes: TEpisode[]
+    locations: TLocation[]
     episode: TEpisode
-    character: any
+    character: TCharacter
+    location: TLocation
+    locations_pages: number | null
 }
 
 export type TCharacter = {
@@ -27,4 +30,14 @@ export type TCharacter = {
     status: string
     type: string
     url: string
+}
+
+export type TLocation = {
+    id: number
+    name: string
+    type: string
+    dimension: string
+    residents: string[]
+    url: string
+    created: string
 }

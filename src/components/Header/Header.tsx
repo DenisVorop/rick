@@ -10,9 +10,11 @@ const Header: React.FC = () => {
         <div className="header">
             <div className="header__container">
                 <div className="header__body">
-                    <div className="header__logo">
-                        <img src={logo} alt="logo" />
-                    </div>
+                    <Link to={'/'}>
+                        <div className="header__logo">
+                            <img src={logo} alt="logo" />
+                        </div>
+                    </Link>
                     <div className="header__navbar">
                         <div className="header__links">
                             <div className="header__link"><Link to={'/'}>Episodes</Link></div>
