@@ -1,0 +1,38 @@
+.episode {
+
+    // .episode__container
+
+    &__container {}
+
+    // .episode__body
+
+    &__body {}
+
+    // .episode__info
+
+    &__info {}
+
+    // .episode__title
+
+    &__title {}
+
+    // .episode__number
+
+    &__number {}
+
+    // .episode__date
+
+    &__date {}
+
+    // .episode__characters
+
+    &__characters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    // .episode__character
+
+    &__character {}
+}

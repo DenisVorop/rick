@@ -26,6 +26,7 @@ const Season: React.FC<SeasonProps> = ({ season, episodes }) => {
                     if (episode.episode.substring(2, 3) === season)
                         return (
                             <EpisodeRow
+                                key={episode.name}
                                 episode={episode}
                             />
                         )

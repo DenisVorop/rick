@@ -3,6 +3,10 @@
     &__wrapper {
         padding: 20px;
         border: 1px solid #000;
+
+        &:not(:last-child) {
+            margin: 0px 0px 30px 0px;
+        }
     }
 
     // .season__top
@@ -24,6 +28,7 @@
 
     &__search {
         margin: 0px 30px 0px 0px;
+
         input {
             border: 1px solid #000;
         }

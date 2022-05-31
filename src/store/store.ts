@@ -38,7 +38,7 @@ import { TStore } from "../types/types";
 //     newTodo: string;
 // }
 // export const setNewTodo = createEvent<string>();
-// export const addTodo = createEvent();
+export const removeEpisode = createEvent();
 // export const update = createEvent<{ id: number; text: string }>();
 // export const remove = createEvent<number>();
 // export const toggle = createEvent<number>();
@@ -50,8 +50,8 @@ export const getEpisodes = createEffect(async (url: string) => {
     return [...page1.results, ...page2.results, ...page3.results]
 });
 
-export const getEpisode = createEffect(async (url: string) => {
-    const req = await fetch(url);
+export const getEpisode = createEffect(async (id: number) => {
+    const req = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
     return req.json();
 });
 
@@ -61,12 +61,10 @@ export default createStore<TStore>({
 })
     .on(getEpisodes.doneData, (state, episodes) => ({ ...state, episodes }))
     .on(getEpisode.doneData, (state, episode) => ({ ...state, episode }))
-    // .on(setNewTodo, (state, newTodo) => ({ ...state, newTodo }))
-    // .on(addTodo, (state) => ({
-    //     ...state,
-    //     newTodo: "",
-    //     todos: addTodoToList(state.todos, state.newTodo),
-    // }))
+    .on(removeEpisode, (state) => ({
+        ...state,
+        episode: []
+    }))
     // .on(update, (state, { id, text }) => ({
     //     ...state,
     //     todos: updateTodo(state.todos, id, text),
