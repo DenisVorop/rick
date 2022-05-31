@@ -1,19 +1,22 @@
+import { useStore } from 'effector-react';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { TCharacter } from '../../types/types';
+import $store, { getCharacter, removeCharacter } from '../../store/store';
 
 interface CharacterProps { }
 
 const Character: React.FC<CharacterProps> = () => {
-    const [character, setCharacter] = React.useState<TCharacter>()
     const params = useParams()
+    const store = useStore($store);
+    const character: TCharacter = store.character
 
     React.useEffect(() => {
-            fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
-                .then(req => req.json())
-                .then(character => {
-                    setCharacter(character)
-        })
+        getCharacter(Number(params.id))
+
+        return () => {
+            removeCharacter()
+        }
     }, [])
 
     return (
