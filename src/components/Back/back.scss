@@ -1,0 +1,25 @@
+.back-body {
+    display: flex;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    // .back-body__arrow
+
+    &__arrow {
+        margin: 0px 8px 0px 0px;
+    }
+
+    // .back-body__label
+
+    &__label {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}

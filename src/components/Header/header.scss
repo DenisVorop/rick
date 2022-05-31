@@ -1,12 +1,43 @@
 .header {
-    margin: 0px 0px 20px 0px;
 
-    &__container {
-        padding: 30px 0px;
+    // .header__container
+
+    &__container {}
+
+    // .header__body
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px 0px 26px 0px;
     }
 
-    &__title {
+    // .header__logo
+
+    &__logo {}
+
+    // .header__navbar
+
+    &__navbar {}
+
+    // .header__links
+
+    &__links {
+        display: flex;
+        align-items: center;
+    }
+
+    // .header__link
+
+    &__link {
         font-weight: 700;
-        font-size: 24px;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+
+        &:not(:last-child) {
+            margin: 0px 24px 0px 0px;
+        }
     }
 }

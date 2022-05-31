@@ -6,6 +6,7 @@ import $store, { getEpisode, removeEpisode } from '../../store/store';
 import { TCharacter, TEpisode } from '../../types/types';
 
 import './episode.scss'
+import Back from '../../components/Back/Back';
 
 interface EpisodeProps { }
 
@@ -43,23 +44,40 @@ const Episode: React.FC<EpisodeProps> = () => {
         <div className="episode">
             <div className="episode__container">
                 <div className="episode__body">
-                    <div className="episode__info">
+                    <div className="episode__top">
+                        <Back />
                         <div className="episode__title">{episode.name}</div>
-                        <div className="episode__number">{episode.episode?.substring(4, 6)}</div>
+                        <div className="episode__null"></div>
                     </div>
-                    <div className="episode__date">{episode.air_date}</div>
-                    <div className="episode__characters">
-                        {characters.map(character => (
-                            <div
-                                className="episode__character"
-                                key={`${episode.name}_${character.id}`}
-                                onClick={() => openCharacter(character.id)}
-                            >
-                                <div><img src={character.image} alt={character.image} /></div>
-                                <div>{character.name}</div>
-                                <div>{character.gender}</div>
-                            </div>
-                        ))}
+                    <div className="episode__info">
+                        <div className="episode__episode">
+                            <div className="label">Episode</div>
+                            <div className="text">{episode.episode}</div>
+                        </div>
+                        <div className="episode__date">
+                            <div className="label">Date</div>
+                            <div className="text">{episode.air_date}</div>
+                        </div>
+                    </div>
+                    <div className="episode__cast">
+                        <div className="info-label">Cast</div>
+                        <div className="episode__cards">
+                            {characters.map(character => (
+                                <div
+                                    key={`${episode.name}_${character.id}`}
+                                    className="episode__card card-episode"
+                                    onClick={() => openCharacter(character.id)}
+                                >
+                                    <div className="card-episode__image">
+                                        <img src={character.image} alt={character.image} />
+                                    </div>
+                                    <div className="card-episode__info">
+                                        <div className="card-episode__name">{character.name}</div>
+                                        <div className="card-episode__gender">{character.gender}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

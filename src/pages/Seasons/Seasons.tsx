@@ -4,6 +4,8 @@ import Season from '../../components/Season/Season';
 
 import $store, { getEpisodes } from '../../store/store';
 
+import episodes from '../../assets/images/episodes.svg'
+
 import './seasons.scss'
 
 interface SeasonsProps { }
@@ -30,14 +32,21 @@ const Seasons: React.FC = () => {
     }, [store.episodes])
 
     return (
-        <div className='seasons__body'>
-            {seasons.map((season: string) => (
-                <Season
-                    key={season}
-                    season={season}
-                    episodes={store.episodes}
-                />
-            ))}
+        <div className="seasons">
+            <div className="seasons__container">
+                <div className="seasons__top">
+                    <img src={episodes} alt="episodes" />
+                </div>
+                <div className='seasons__body'>
+                    {seasons.map((season: string) => (
+                        <Season
+                            key={season}
+                            season={season}
+                            episodes={store.episodes}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
