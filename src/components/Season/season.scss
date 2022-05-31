@@ -1,0 +1,43 @@
+.season {
+
+    &__wrapper {
+        padding: 20px;
+        border: 1px solid #000;
+    }
+
+    // .season__top
+
+    &__top {
+        display: flex;
+        align-items: center;
+    }
+
+    // .season__title
+
+    &__title {
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0px 30px 0px 0px;
+    }
+
+    // .season__search
+
+    &__search {
+        margin: 0px 30px 0px 0px;
+        input {
+            border: 1px solid #000;
+        }
+    }
+
+    // .season__sort
+
+    &__sort {
+        input {
+            border: 1px solid #000;
+        }
+    }
+
+    // .season__body
+
+    &__body {}
+}

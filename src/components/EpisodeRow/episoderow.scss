@@ -1,0 +1,23 @@
+.episode-row {
+
+    // .episode-row__body
+
+    &__body {
+        padding: 10px 20px;
+        display: flex;
+    }
+
+    // .episode-row__column
+
+    &__column {
+        &:not(:last-child) {
+            margin: 0px 15px 0px 0px;
+            border-right: 1px solid #000;
+            padding: 0px 15px 0px 0px;
+        }
+    }
+
+    // .episode-row__btn
+
+    &__btn {}
+}
