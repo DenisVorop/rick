@@ -40,8 +40,13 @@ import { TCharacter, TEpisode, TStore } from "../types/types";
 // }
 // export const setNewTodo = createEvent<string>();
 export const removeEpisode = createEvent();
+export const removeEpisodes = createEvent();
+
 export const removeCharacter = createEvent();
+export const removeCharacters = createEvent();
+
 export const removeLocation = createEvent();
+export const removeLocations = createEvent();
 // export const update = createEvent<{ id: number; text: string }>();
 // export const remove = createEvent<number>();
 // export const toggle = createEvent<number>();
@@ -55,9 +60,18 @@ export const getEpisodes = createEffect(async (url: string) => {
 
 export const getLocations = createEffect(async (url: string) => {
     const res = await fetch(`${url}`).then(req => req.json())
-    console.log(res)
     return res
 })
+
+export const getCharacters = createEffect(async (url: string) => {
+    const res = await fetch(`${url}`).then(req => req.json())
+    return res
+})
+
+// export const getCharactersWithParams = createEffect(async (url: string) => {
+//     const res = await fetch(`${url}`).then(req => req.json())
+//     return res
+// })
 
 export const getEpisode = createEffect(async (id: number) => {
     const req = await fetch(`https://rickandmortyapi.com/api/episode/${id}`)
@@ -78,16 +92,37 @@ export const getLocation = createEffect(async (name: string) => {
 export default createStore<TStore>({
     episodes: [],
     locations: [],
+    characters: [],
     episode: {} as TEpisode,
     character: {} as TCharacter,
     location: {} as TLocation,
-    locations_pages: null
+    locations_pages: null,
+    characters_pages: null
 })
     .on(getEpisodes.doneData, (state, episodes: TEpisode[]) => ({ ...state, episodes }))
+    .on(removeEpisodes, (state) => ({
+        ...state,
+        episodes: [] as TEpisode[]
+    }))
+
     .on(getLocations.doneData, (state, locations) => ({
         ...state,
         locations_pages: locations.info.pages,
         locations: [...state.locations, ...locations.results]
+    }))
+    .on(removeLocations, (state) => ({
+        ...state,
+        locations: [] as TLocation[]
+    }))
+
+    .on(getCharacters.doneData, (state, characters) => ({
+        ...state,
+        characters_pages: characters.info.pages,
+        characters: [...characters.results]
+    }))
+    .on(removeCharacters, (state) => ({
+        ...state,
+        characters: [] as TCharacter[]
     }))
 
     .on(getEpisode.doneData, (state, episode: TEpisode) => ({ ...state, episode }))

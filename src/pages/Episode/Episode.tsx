@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useStore } from 'effector-react';
 
-import Card from '../../components/CharacterCard/CharacterCard';
+import CharacterCard from '../../components/CharacterCard/CharacterCard';
 import Back from '../../components/Back/Back';
 
 import $store, { getEpisode, removeEpisode } from '../../store/store';
@@ -61,7 +61,7 @@ const Episode: React.FC<EpisodeProps> = () => {
                         <div className="info-label">Cast</div>
                         <div className="cards">
                             {characters.map(character => (
-                                <Card
+                                <CharacterCard
                                     key={`${character.name}_${character.id}`}
                                     character={character}
                                 />

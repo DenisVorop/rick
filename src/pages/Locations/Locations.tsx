@@ -2,7 +2,7 @@ import React from 'react';
 import { useStore } from 'effector-react';
 import { Link } from 'react-router-dom';
 
-import $store, { getLocations } from '../../store/store';
+import $store, { getLocations, removeLocations } from '../../store/store';
 
 import useInput from '../../hooks/useInput';
 import useScroll from '../../hooks/useScroll';
@@ -18,12 +18,12 @@ import './locations.scss'
 interface LocationsProps { }
 
 const Locations: React.FC = () => {
-    const store = useStore($store);
+    const store = useStore($store)
+    const locations = store.locations
+    const locations_pages = store.locations_pages
     const { value: nameValue, bind: nameBind } = useInput('')
     const { value: typeValue, bind: typeBind } = useInput('')
     const { value: dimensionValue, bind: dimensionBind } = useInput('')
-    const locations = store.locations
-    const locations_pages = store.locations_pages
 
     const [page, setPage] = React.useState(1)
     const parentRef = React.useRef<HTMLDivElement>(null)
@@ -34,6 +34,10 @@ const Locations: React.FC = () => {
     React.useEffect(() => {
         getLocations(`https://rickandmortyapi.com/api/location?page=${page}`)
         setPage(prev => prev + 1)
+
+        return () => {
+            removeLocations()
+        }
     }, [])
 
     function fetchLocations(page: string) {

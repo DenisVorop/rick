@@ -1,8 +1,13 @@
 .header {
+    background: #FFFFFF;
+    box-shadow: -2px 0px 8px 2px rgba(0, 0, 0, 0.1);
+    margin: 0px 0px 26px 0px;
 
     // .header__container
 
-    &__container {}
+    &__container {
+        padding: 5px 0px !important;
+    }
 
     // .header__body
 
@@ -10,7 +15,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 0px 0px 26px 0px;
     }
 
     // .header__logo

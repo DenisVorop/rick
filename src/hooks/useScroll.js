@@ -11,7 +11,6 @@ export default function useScroll(parentRef, childRef, callback) {
         }
         observer.current = new IntersectionObserver(([target]) => {
             if (target.isIntersecting) {
-                console.log('intersected')
                 callback()
             }
         }, options)
