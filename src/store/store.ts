@@ -2,43 +2,6 @@ import { TLocation } from './../types/types';
 import { createEvent, createStore, createEffect } from "effector";
 import { TCharacter, TEpisode, TStore } from "../types/types";
 
-// Standard interface and functions
-// export interface Todo {
-//     id: number;
-//     text: string;
-//     done: boolean;
-// }
-
-// export const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
-//     todos.map((todo) => ({
-//         ...todo,
-//         text: todo.id === id ? text : todo.text,
-//     }));
-
-// export const toggleTodo = (todos: Todo[], id: number): Todo[] =>
-//     todos.map((todo) => ({
-//         ...todo,
-//         done: todo.id === id ? !todo.done : todo.done,
-//     }));
-
-// export const removeTodo = (todos: Todo[], id: number): Todo[] =>
-//     todos.filter((todo) => todo.id !== id);
-
-// export const addTodoToList = (todos: Todo[], text: string): Todo[] => [
-//     ...todos,
-//     {
-//         id: Math.max(0, Math.max(...todos.map(({ id }) => id))) + 1,
-//         text,
-//         done: false,
-//     },
-// ];
-
-// Effector implementation
-// interface Store {
-//     todos: Todo[];
-//     newTodo: string;
-// }
-// export const setNewTodo = createEvent<string>();
 export const removeEpisode = createEvent();
 export const removeEpisodes = createEvent();
 
@@ -47,9 +10,6 @@ export const removeCharacters = createEvent();
 
 export const removeLocation = createEvent();
 export const removeLocations = createEvent();
-// export const update = createEvent<{ id: number; text: string }>();
-// export const remove = createEvent<number>();
-// export const toggle = createEvent<number>();
 
 export const getEpisodes = createEffect(async (url: string) => {
     const page1 = await fetch(`${url}1`).then(req => req.json())
@@ -67,11 +27,6 @@ export const getCharacters = createEffect(async (url: string) => {
     const res = await fetch(`${url}`).then(req => req.json())
     return res
 })
-
-// export const getCharactersWithParams = createEffect(async (url: string) => {
-//     const res = await fetch(`${url}`).then(req => req.json())
-//     return res
-// })
 
 export const getEpisode = createEffect(async (id: number) => {
     const req = await fetch(`https://rickandmortyapi.com/api/episode/${id}`)
@@ -140,15 +95,3 @@ export default createStore<TStore>({
         ...state,
         location: {} as TLocation
     }))
-    // .on(update, (state, { id, text }) => ({
-    //     ...state,
-    //     todos: updateTodo(state.todos, id, text),
-    // }))
-    // .on(remove, (state, id) => ({
-    //     ...state,
-    //     todos: removeTodo(state.todos, id),
-    // }))
-    // .on(toggle, (state, id) => ({
-    //     ...state,
-    //     todos: toggleTodo(state.todos, id),
-    // }));
