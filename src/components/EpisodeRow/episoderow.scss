@@ -1,23 +1,57 @@
 .episode-row {
+    background: #FAFAFA;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 
     // .episode-row__body
 
     &__body {
-        padding: 10px 20px;
-        display: flex;
+        padding: 16px 25px;
     }
 
     // .episode-row__column
 
-    &__column {
-        &:not(:last-child) {
-            margin: 0px 15px 0px 0px;
-            border-right: 1px solid #000;
-            padding: 0px 15px 0px 0px;
-        }
-    }
+    &__column {}
 
     // .episode-row__btn
 
     &__btn {}
+
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.15px;
+        color: rgba(0, 0, 0, 0.87)
+    }
+
+    &__date {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    &__episode-number {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 1);
+    }
+
+    &__characters-label {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+    }
 }

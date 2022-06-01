@@ -11,19 +11,16 @@ interface EpisodeRowProps {
 const EpisodeRow: React.FC<EpisodeRowProps> = ({ episode }) => {
     const navigate = useNavigate()
 
-    const openEpisode = () => {
-        navigate(`/episodes/${episode.id}`)
-    }
-
     return (
         <div className="episode-row">
-            <div className="episode-row__body">
-                <div className="episode-row__column" onClick={openEpisode}>#{episode.episode.substring(4, 6)}</div>
-                <div className="episode-row__column">{episode.air_date}</div>
-                <div className="episode-row__column">{episode.name}</div>
-                <div className="episode-row__column">{episode.characters.length}</div>
-                <div className="episode-row__btn">
-                    ready?
+            <div className="episode-row__body" onClick={() => navigate(`/episodes/${episode.id}`)}>
+                <div className="episode-row__episode-number">Serie - #{episode.episode.substring(4, 6)}</div>
+                <div className="episode-row__info">
+                    <div className="episode-row__name">{episode.name}</div>
+                    <div className="episode-row__date">{episode.air_date}</div>
+                    <div className="episode-row__characters-info">
+                        <div className="episode-row__characters-label">Heroes -  {episode.characters.length}</div>
+                    </div>
                 </div>
             </div>
         </div>

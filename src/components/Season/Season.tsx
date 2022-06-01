@@ -6,6 +6,8 @@ import EpisodeRow from '../EpisodeRow/EpisodeRow';
 
 import useInput from '../../hooks/useInput';
 
+import loop from '../../assets/images/loop.svg'
+
 import './season.scss'
 
 interface SeasonProps {
@@ -20,11 +22,9 @@ const Season: React.FC<SeasonProps> = ({ season, episodes }) => {
         <div className='season__wrapper'>
             <div className="season__top">
                 <div className="season__title">{season} Season</div>
-                <div className="season__search">
-                    <input type="text" placeholder='Search episode' {...seasonSearchBind} />
-                </div>
-                <div className="season__sort">
-                    <input type="text" placeholder='sort by' />
+                <div className="locations__input">
+                    <img src={loop} alt="loop" />
+                    <input type="text" placeholder='Search episode...'{...seasonSearchBind} />
                 </div>
             </div>
             <div className="season__body">

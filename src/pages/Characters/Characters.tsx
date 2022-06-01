@@ -38,7 +38,7 @@ const Characters: React.FC = () => {
     }, [page, status, gender])
 
     const genders = ['Male', 'Female', 'Genderless', 'Unknown']
-    const statuses = ['alive', 'dead', 'unknown']
+    const statuses = ['Alive', 'Dead', 'Unknown']
 
     return (
         <div className="characters">

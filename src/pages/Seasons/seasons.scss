@@ -2,9 +2,15 @@
 
     // .seasons__container
 
-    &__container {}
+    &__container {
+        max-width: 1240px !important;
+    }
 
     // .seasons__body
 
-    &__body {}
+    &__body {
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // gap: 50px;
+    }
 }
