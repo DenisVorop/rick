@@ -2,20 +2,18 @@ import React from 'react';
 import { useStore } from 'effector-react';
 import { Link } from 'react-router-dom';
 
-import $store, { getLocations, removeLocations } from '../../store/store';
-
 import useInput from '../../hooks/useInput';
 import useScroll from '../../hooks/useScroll';
 
 import ImageTop from '../../components/ImageTop/ImageTop';
 import LocationCard from '../../components/LocationCard/LocationCard';
 
+import $store, { getLocations, removeLocations } from '../../store/store';
+
 import loop from '../../assets/images/loop.svg'
 import ricknmorty from '../../assets/images/locations.svg'
 
 import './locations.scss'
-
-interface LocationsProps { }
 
 const Locations: React.FC = () => {
     const store = useStore($store)

@@ -12,10 +12,7 @@ import arrowR from '../../assets/images/arrowR.svg'
 
 import './character.scss'
 
-
-interface CharacterProps { }
-
-const Character: React.FC<CharacterProps> = () => {
+const Character: React.FC = () => {
     const params = useParams()
     const store = useStore($store);
     const character: TCharacter = store.character

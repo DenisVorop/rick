@@ -1,10 +1,10 @@
 import React from 'react';
 
+import useInput from '../../hooks/useInput';
+
 import { TEpisode } from '../../types/types';
 
 import EpisodeRow from '../EpisodeRow/EpisodeRow';
-
-import useInput from '../../hooks/useInput';
 
 import loop from '../../assets/images/loop.svg'
 

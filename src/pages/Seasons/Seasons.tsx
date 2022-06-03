@@ -1,15 +1,14 @@
-import { useStore } from 'effector-react';
 import React from 'react';
+import { useStore } from 'effector-react';
+
 import Season from '../../components/Season/Season';
+import ImageTop from '../../components/ImageTop/ImageTop';
 
 import $store, { getEpisodes } from '../../store/store';
 
 import ricknmorty from '../../assets/images/episodes.svg'
 
 import './seasons.scss'
-import ImageTop from '../../components/ImageTop/ImageTop';
-
-interface SeasonsProps { }
 
 const Seasons: React.FC = () => {
     const store = useStore($store);

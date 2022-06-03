@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import Card from '../../components/CharacterCard/CharacterCard';
 import Back from '../../components/Back/Back';
 
-import $store, { getLocation, removeLocation } from '../../store/store';
-
 import { TCharacter, TLocation } from '../../types/types';
+
+import $store, { getLocation, removeLocation } from '../../store/store';
 
 import './location.scss'
 

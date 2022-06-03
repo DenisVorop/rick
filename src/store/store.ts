@@ -1,6 +1,5 @@
-import { TLocation } from './../types/types';
 import { createEvent, createStore, createEffect } from "effector";
-import { TCharacter, TEpisode, TStore } from "../types/types";
+import { TCharacter, TEpisode, TStore, TLocation } from "../types/types";
 
 export const removeEpisode = createEvent();
 export const removeEpisodes = createEvent();
@@ -12,6 +11,8 @@ export const removeLocation = createEvent();
 export const removeLocations = createEvent();
 
 export const getEpisodes = createEffect(async (url: string) => {
+    // Это и некрасиво, и неправильно, и ужасно, и отвратительно, но я не знал как
+    // подгрузить все серии разом, чтобы поделить на сезоны
     const page1 = await fetch(`${url}1`).then(req => req.json())
     const page2 = await fetch(`${url}2`).then(req => req.json())
     const page3 = await fetch(`${url}3`).then(req => req.json())

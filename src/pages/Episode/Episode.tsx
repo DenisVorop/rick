@@ -5,15 +5,13 @@ import { useStore } from 'effector-react';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 import Back from '../../components/Back/Back';
 
-import $store, { getEpisode, removeEpisode } from '../../store/store';
-
 import { TCharacter, TEpisode } from '../../types/types';
+
+import $store, { getEpisode, removeEpisode } from '../../store/store';
 
 import './episode.scss'
 
-interface EpisodeProps { }
-
-const Episode: React.FC<EpisodeProps> = () => {
+const Episode: React.FC = () => {
     const params = useParams()
     const store = useStore($store);
     const episode: TEpisode = store.episode

@@ -2,18 +2,16 @@ import React from 'react';
 import { useStore } from 'effector-react';
 
 import useInput from '../../hooks/useInput';
-import $store, { getCharacters, removeCharacters } from '../../store/store';
 
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 import ImageTop from '../../components/ImageTop/ImageTop';
+
+import $store, { getCharacters, removeCharacters } from '../../store/store';
 
 import loop from '../../assets/images/loop.svg'
 import ricknmorty from '../../assets/images/episodes.svg'
 
 import './characters.scss'
-
-
-interface CharactersProps { }
 
 const Characters: React.FC = () => {
     const store = useStore($store)
